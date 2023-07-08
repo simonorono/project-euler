@@ -1,3 +1,4 @@
+#include "../../lib/eratosthenes.h"
 #include <stdint.h>
 #include <stdio.h>
 
@@ -7,19 +8,13 @@
 #define EX10_MAX 2'000'000
 
 void ex10() {
-  uint8_t sieve[EX10_MAX] = {0};
+  uint8_t sieve[EX10_MAX];
+  init_sieve(sieve, EX10_MAX);
   long sum = 0;
 
-  for (int i = 2; i < EX10_MAX; ++i) {
-    if (sieve[i] != 0) continue;
-
-    for (int j = i; j < EX10_MAX; j += i) {
-      if (sieve[j] != 0) continue;
-      sieve[j] = i == j ? 2 : 1;
-    }
-
-    sum += i;
-  }
+  for (int i = 0; i < EX10_MAX; ++i)
+    if (is_prime(sieve, i))
+      sum += i;
 
   printf("%ld\n", sum);
 }

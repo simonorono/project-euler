@@ -1,3 +1,4 @@
+#include "../../lib/eratosthenes.h"
 #include <stdint.h>
 #include <stdio.h>
 
@@ -8,21 +9,13 @@
 #define EX7_MAX 200'000
 
 void ex7() {
-  uint8_t primes[EX7_MAX] = {0};
+  uint8_t sieve[EX7_MAX];
+  init_sieve(sieve, EX7_MAX);
+
   int primes_seen = 0;
 
-  // 2 means prime, 1 means not prime, 0 means not seen
-
-  for (int i = 2; i < EX7_MAX; ++i) {
-    if (primes[i] != 0) continue;
-
-    for (int j = i; j < EX7_MAX; j += i) {
-      if (primes[j] != 0) continue;
-
-      primes[j] = i == j ? 2 : 1;
-    }
-
-    if ((++primes_seen) == 10001) {
+  for (int i = 0; i < EX7_MAX; ++i) {
+    if (is_prime(sieve, i) && (++primes_seen) == 10001) {
       printf("%d\n", i);
       break;
     }
