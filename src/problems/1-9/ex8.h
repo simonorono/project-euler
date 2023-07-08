@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 
-#define INPUT "\
+#ifndef PROJECT_EULER_EX8_H
+#define PROJECT_EULER_EX8_H
+
+#define EX8_INPUT "\
 73167176531330624919225119674426574742355349194934\
 96983520312774506326239578318016984801869478851843\
 85861560789112949495459501737958331952853208805511\
@@ -23,18 +26,18 @@
 05886116467109405077541002256983155200055935729725\
 71636269561882670428252483600823257530420752963450"
 
-#define N 13
+#define EX8_N 13
 
-int main() {
-  const char *input = INPUT;
+void ex8() {
+  const char *input = EX8_INPUT;
   size_t len = strlen(input);
   long max = 0;
 
   int i, j;
-  for (i = 0; i < len - N; ++i) {
+  for (i = 0; i < len - EX8_N; ++i) {
     long acc = 1;
 
-    for (j = i; j < i + N; ++j) {
+    for (j = i; j < i + EX8_N; ++j) {
       acc *= input[j] - '0';
     }
 
@@ -45,3 +48,5 @@ int main() {
 
   printf("%ld\n", max);
 }
+
+#endif//PROJECT_EULER_EX8_H

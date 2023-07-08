@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-int main() {
+#ifndef PROJECT_EULER_EX2_H
+#define PROJECT_EULER_EX2_H
+
+void ex2() {
   int i = 1, j = 2;
   int acc = 0;
 
@@ -15,3 +18,5 @@ int main() {
 
   printf("%d\n", acc);
 }
+
+#endif//PROJECT_EULER_EX2_H

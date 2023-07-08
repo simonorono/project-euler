@@ -3,6 +3,5 @@ project(project_euler C)
 
 set(CMAKE_C_STANDARD 23)
 
-foreach (N RANGE 1 10)
-    add_executable("${N}" "ex${N}.c")
-endforeach ()
+file(GLOB EX1_10 src/problems/1-9/*.c)
+add_executable(pe src/pe.c ${EX1_10})

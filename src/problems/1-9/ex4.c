@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int digits_in_int(int n) {
+static int digits_in_int(int n) {
   int result = 0;
 
   while (n != 0) {
@@ -12,7 +12,7 @@ int digits_in_int(int n) {
   return result;
 }
 
-void fill_array(int array[], int digits, int testing) {
+static void fill_array(int array[], int digits, int testing) {
   int c = 0;
 
   while (testing != 0) {
@@ -22,7 +22,7 @@ void fill_array(int array[], int digits, int testing) {
   }
 }
 
-bool is_palindrome(const int array[], int n) {
+static bool is_palindrome(const int array[], int n) {
   bool result = true;
 
   for (int i = 0; i < n / 2; i++) {
@@ -36,7 +36,7 @@ bool is_palindrome(const int array[], int n) {
   return result;
 }
 
-int main() {
+void ex4() {
   int largest = 0;
 
   for (int i = 100; i < 1000; ++i) {

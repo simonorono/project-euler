@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-int main() {
+#ifndef PROJECT_EULER_EX3_H
+#define PROJECT_EULER_EX3_H
+
+void ex3() {
   long to_factor = 600'851'475'143;
   long largest = 0;
 
@@ -25,3 +28,5 @@ int main() {
 
   printf("%ld\n", largest);
 }
+
+#endif//PROJECT_EULER_EX3_H
