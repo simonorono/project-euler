@@ -11,7 +11,7 @@ static bool divisible_by_all_20_ints(int n) {
 }
 
 void ex5() {
-  for (int i = 20;; ++i) {
+  for (int i = 20;; i += 20) {
     if (divisible_by_all_20_ints(i)) {
       printf("%d\n", i);
       break;
