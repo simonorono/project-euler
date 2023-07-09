@@ -68,7 +68,7 @@ static long top_right_product(int i, int j) {
   return acc;
 }
 
-static long top_bottom_product(int i, int j) {
+static long bottom_right_product(int i, int j) {
   if (j < 3 || i > (EX11_MAX - 4)) {
     return 0;
   }
@@ -91,7 +91,7 @@ void ex11() {
         horizontal_product(i, j),
         vertical_product(i, j),
         top_right_product(i, j),
-        top_bottom_product(i, j),
+        bottom_right_product(i, j),
       };
 
       for (int k = 0; k < 4; ++k) {
