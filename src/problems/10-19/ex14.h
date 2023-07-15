@@ -1,0 +1,6 @@
+#ifndef PROJECT_EULER_EX14_H
+#define PROJECT_EULER_EX14_H
+
+void ex14();
+
+#endif//PROJECT_EULER_EX14_H
