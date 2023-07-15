@@ -36,7 +36,7 @@ static bool is_palindrome(const int array[], int n) {
   return result;
 }
 
-void ex4() {
+static void ex4_digit_array() {
   int largest = 0;
 
   for (int i = 100; i < 1000; ++i) {
@@ -54,5 +54,39 @@ void ex4() {
     }
   }
 
-  printf("%d\n", largest);
+  printf("%d", largest);
+}
+
+static int reverse_integer(int n) {
+  int reverse = 0;
+
+  while (n > 0) {
+    reverse = (reverse * 10) + (n % 10);
+    n /= 10;
+  }
+
+  return reverse;
+}
+
+static void ex4_reverse_integer() {
+  int largest = 0;
+
+  for (int i = 100; i < 1000; ++i) {
+    for (int j = 100; j < 1000; ++j) {
+      int testing = i * j;
+      if (testing == reverse_integer(testing) && testing > largest) {
+        largest = testing;
+      }
+    }
+  }
+
+  printf("%d", largest);
+}
+
+void ex4() {
+  printf("\n  Digit array: ");
+  ex4_digit_array();
+  printf("\n  Reverse int: ");
+  ex4_reverse_integer();
+  printf("\n");
 }
