@@ -26,7 +26,7 @@ void ex16() {
   for (int i = 0; i < RESULT_BUFFER_SIZE; ++i) {
     if (result_str[i] == 0) break;//mpz_get_str sets the last char as NULL
 
-    sum += ((result_str[i] - '0'));
+    sum += (result_str[i] - '0');
   }
 
   printf("%d\n", sum);
