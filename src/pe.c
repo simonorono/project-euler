@@ -8,7 +8,12 @@
 #define NO_FILTER (0)
 #define BAD_FILTER (-1)
 
-bool is_number(const char *str) {
+static void (*functions[])() = {EX_1_9, EX_10_19};
+
+#define TOTAL_SOLUTIONS \
+  (sizeof(functions) / sizeof(functions[0]))
+
+static bool is_number(const char *str) {
   size_t len = strlen(str);
 
   for (size_t i = 0; i < len; ++i)
@@ -18,7 +23,7 @@ bool is_number(const char *str) {
   return true;
 }
 
-int get_filter(int argc, const char *argv[], size_t total_problems) {
+static int get_filter(int argc, const char *argv[]) {
   if (argc <= 1) {
     return NO_FILTER;
   }
@@ -30,8 +35,8 @@ int get_filter(int argc, const char *argv[], size_t total_problems) {
 
   int filter = (int) strtol(argv[1], NULL, 10);
 
-  if (filter < 1 || filter > total_problems) {
-    printf("First positional argument must be an integer between 1 and %zu.\n", total_problems);
+  if (filter < 1 || filter > TOTAL_SOLUTIONS) {
+    printf("First positional argument must be an integer between 1 and %zu.\n", TOTAL_SOLUTIONS);
     return BAD_FILTER;
   }
 
@@ -39,10 +44,7 @@ int get_filter(int argc, const char *argv[], size_t total_problems) {
 }
 
 int main(int argc, const char *argv[]) {
-  void (*functions[])() = {EX_1_9, EX_10_19};
-  size_t len = sizeof(functions) / sizeof(functions[0]);
-
-  int filter = get_filter(argc, argv, len);
+  int filter = get_filter(argc, argv);
 
   if (filter == BAD_FILTER) {
     return 0;
@@ -54,7 +56,7 @@ int main(int argc, const char *argv[]) {
     return 0;
   }
 
-  for (size_t i = 0; i < len; ++i) {
+  for (size_t i = 0; i < TOTAL_SOLUTIONS; ++i) {
     printf("#%zu: ", i + 1);
     functions[i]();
   }
