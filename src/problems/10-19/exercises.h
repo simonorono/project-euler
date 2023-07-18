@@ -8,7 +8,8 @@
 #include "ex14.h"
 #include "ex15.h"
 #include "ex16.h"
+#include "ex17.h"
 
-#define EX_10_19 ex10, ex11, ex12, ex13, ex14, ex15, ex16
+#define EX_10_19 ex10, ex11, ex12, ex13, ex14, ex15, ex16, ex17
 
 #endif//PROJECT_EULER_EXERCISES_10_19_H
